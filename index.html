@@ -277,7 +277,7 @@ svg,video,canvas{display:block}
 (function(){
   'use strict';
   /* BOOMERANG VIDEO (§9) */
-  var SRC = 'https://media.kolpusites.com/stillhour/a_compressed.mp4';
+  var SRC = 'a_compressed.mp4';
   var SPEED = 0.5;
   var REWIND_FROM = 0.60;
   var MAX_W = innerWidth < 768 ? 640 : 960;
@@ -337,7 +337,7 @@ svg,video,canvas{display:block}
       (function rVFC(now, meta){
         if (!captured) return;
         storeFrame();
-        if (video.readyState >= 2) video.requestVideoFrameCallback(rVFC);
+        video.requestVideoFrameCallback(rVFC);
       })();
     } else {
       (function loop(){
@@ -414,6 +414,21 @@ svg,video,canvas{display:block}
 
   /* SETUP (§9 step 1) */
   video.src = SRC;
+
+  /* COPY ENTRANCE REEL DRIVER (§8) — self-cleans after ~1.5s */
+  (function(){
+    if (!document.documentElement.classList.contains('anim')) return;
+    var timeout = new Promise(function(r){ setTimeout(r, 500); });
+    var ready = (document.fonts && typeof Promise !== 'undefined') ? (document.fonts.ready || Promise.resolve()) : Promise.resolve();
+    Promise.race([ready, timeout]).then(function(){
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          document.documentElement.classList.add('play');
+          setTimeout(function(){ document.documentElement.classList.remove('anim', 'play'); }, 1500);
+        });
+      });
+    });
+  })();
 })();
 </script>
 </body>
