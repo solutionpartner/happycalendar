@@ -258,12 +258,12 @@ body{background:var(--bg-fallback);color:var(--ink);-webkit-font-smoothing:antia
 .feature p{margin:0;font-size:14px;line-height:1.65;color:var(--ink);opacity:.74}
 
 /* SHOWCASE */
-.showcase{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0f1d3a 0%,#1a2b52 52%,#2c4172 100%);aspect-ratio:16/9;box-shadow:0 46px 90px -34px rgba(15,29,58,.55)}
+.showcase{position:relative;overflow:hidden}position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0f1d3a 0%,#1a2b52 52%,#2c4172 100%);aspect-ratio:16/9;box-shadow:0 46px 90px -34px rgba(15,29,58,.55)}
 .showcase [data-parallax]{position:absolute;border-radius:50%;pointer-events:none;will-change:transform}
 .showcase__glow1{width:560px;height:560px;background:radial-gradient(circle,rgba(194,70,43,.55) 0%,transparent 64%);filter:blur(34px);top:-160px;right:-120px}
 .showcase__glow2{width:480px;height:480px;background:radial-gradient(circle,rgba(122,79,181,.4) 0%,transparent 66%);filter:blur(30px);bottom:-180px;left:-120px}
 .showcase__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;opacity:.6}
-.showcase__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#c9d2e4;text-align:center;padding:24px}
+.showcase__placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1} .showcase__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#c9d2e4;text-align:center;padding:24px}
 .showcase__ph{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:10px 18px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .showcase__sub{font-size:13px;opacity:.6;max-width:24rem}
 .showcase__frame{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
@@ -533,11 +533,7 @@ body{background:var(--bg-fallback);color:var(--ink);-webkit-font-smoothing:antia
         <div class="showcase__grid" aria-hidden="true"></div>
         <div class="showcase__glow1" data-parallax data-speed="25" aria-hidden="true"></div>
         <div class="showcase__glow2" data-parallax data-speed="18" aria-hidden="true"></div>
-        <div class="showcase__placeholder">
-          <span class="showcase__ph">Placeholder — app screenshot needed</span>
-          <span class="showcase__sub">16:9 capture of the weekly planner: protected deep-work blocks, veto queue, weekly review.</span>
-        </div>
-        <div class="showcase__frame" aria-hidden="true"></div>
+        <div class="showcase__placeholder"><img src="app-week.png" alt="HappyCalendar weekly planner" loading="lazy"></div><div class="showcase__frame" aria-hidden="true"></div>
       </div>
     </div>
   </section>
