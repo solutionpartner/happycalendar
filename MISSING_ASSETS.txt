@@ -1,0 +1,39 @@
+====================================================================
+ HappyCalendar — MISSING ASSETS
+ Page:   index.html  (GitHub Pages: https://solutionpartner.github.io/stillhour/)
+ Updated: body + footer appended; hero + nav + mobile menu unchanged.
+====================================================================
+
+Self-hosted assets that are NOT yet present and must be added before
+production launch. All are styled as PLACEHOLDERS in-page right now so
+the page renders fully and needs no external network calls.
+
+---------------------------------------------------------------------------------
+| ID            | What's needed                  | Where it's used        | Status |
+---------------------------------------------------------------------------------
+| app-screenshot| 16:9 "weekly planner" screen-  | #app product showcase  | PLACEHOLDER
+|               | shot: protected deep-work      |  (16:9 gradient block, |
+|               | blocks, veto queue, weekly     |  labelled "Placeholder—|
+|               | review. Suggested still is a   |  app screenshot needed")|
+|               | light-UI capture of the actual |                       |
+|               | HappyCalendar app. Ideally 1x  |                       |
+|               | + 2x for retina.               |                       |
+---------------------------------------------------------------------------------
+| hero-video    | `a_compressed.mp4` (boomerang  | Hero background       | PRESENT
+|               | calendar-app clip)             |                       |
+---------------------------------------------------------------------------------
+| favicon       | inline SVG data-URI (already   | <head> link rel=icon  | PRESENT
+|               | embedded in index.html)        |                       |
+---------------------------------------------------------------------------------
+| fonts         | Neue Haas Grotesk via          | <head> stylesheets    | PRESENT
+|               | onlinewebfonts (external CDN)  | (onlinewebfonts.com)  |
+---------------------------------------------------------------------------------
+
+NOTES
+- All icons are inline SVG (self-hosted; no icon-font/network dependency).
+- The product screenshot is the ONLY missing asset. Everything else ships.
+- When the screenshot lands: drop it in this folder, e.g. `app-week.png`,
+  and replace the `.showcase__placeholder` block with an <img> (alt text:
+  "HappyCalendar weekly planner") or a video, keeping the 16:9 aspect-ratio.
+- All other outbound links (#product, #pricing, #stories, #changelog,
+  #signup, #login) are on-page anchors or future sign-up routes.

@@ -201,6 +201,172 @@ svg,video,canvas{display:block}
   .drawer__links a,.drawer__actions{transform:translateX(2rem);opacity:0}
   .hero[data-open] .drawer__links a,.hero[data-open] .drawer__actions{transform:translateX(0);opacity:1}
 }
+
+/* ============================================================
+   HappyCalendar — SaaS BODY + FOOTER (appended, hero untouched)
+   ============================================================ */
+html{scroll-behavior:smooth}
+section[id],footer[id],div[id]{scroll-margin-top:84px}
+body{background:var(--bg-fallback);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.container{padding:0 40px}}
+.section{padding:88px 0}
+@media(min-width:768px){.section{padding:132px 0}}
+
+/* STICKY ACCENT — thin scroll-progress bar fixed to top (restrained gradient use) */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;background:rgba(15,29,58,.06);pointer-events:none}
+.progress__bar{height:100%;width:0;background:var(--accent);background-size:200% 100%}
+
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);opacity:.55;margin-bottom:18px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--sun)}
+.h2{font-weight:500;letter-spacing:-.03em;font-size:2rem;line-height:1.06;margin:0;text-wrap:balance}
+@media(min-width:768px){.h2{font-size:2.75rem}}
+@media(min-width:1024px){.h2{font-size:3.25rem}}
+.lede{max-width:34rem;margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--ink);opacity:.72}
+@media(min-width:768px){.lede{font-size:17px}}
+.h2 .grad{color:transparent;background-image:var(--accent);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-expo),transform .8s var(--ease-expo)}
+.reveal.in{opacity:1;transform:none}
+
+/* PROBLEM / SOLUTION */
+.prob{display:grid;gap:48px;grid-template-columns:1fr;align-items:center}
+@media(min-width:960px){.prob{grid-template-columns:1fr 1fr;gap:80px}}
+.prob__stack{display:flex;flex-direction:column;gap:26px}
+.prob__row{display:flex;gap:16px;align-items:flex-start}
+.prob__mark{flex:none;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.prob__mark--x{background:rgba(194,70,43,.1);color:var(--sun)}
+.prob__mark--ok{background:rgba(15,29,58,.06);color:var(--ink)}
+.prob__row h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0 0 4px}
+.prob__row p{margin:0;font-size:14px;line-height:1.65;color:var(--ink);opacity:.7}
+.prob__gap{display:flex;align-items:center;justify-content:center;position:relative}
+.prob__gap::before{content:"";width:1px;height:100%;background:linear-gradient(to bottom,transparent,var(--sun) 50%,transparent)}
+.prob__arrow{position:relative;z-index:1;width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px -14px rgba(15,29,58,.5)}
+@media(max-width:959px){.prob__gap::before{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--sun),transparent)}}
+
+/* FEATURES */
+.features{display:grid;gap:16px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:640px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.features{grid-template-columns:repeat(4,1fr)}}
+.feature{background:#fff;border:1px solid rgba(15,29,58,.08);border-radius:20px;padding:28px 24px;box-shadow:0 1px 2px rgba(15,29,58,.04);transition:transform .4s var(--ease-expo),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+.feature:hover{transform:translateY(-5px);box-shadow:0 28px 52px -22px rgba(15,29,58,.22);border-color:rgba(15,29,58,.16)}
+.feature__icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:#f0f2f7;color:var(--sun);margin-bottom:22px;transition:background-color .4s var(--ease),color .4s var(--ease)}
+.feature:hover .feature__icon{background:var(--ink);color:#fff}
+.feature h3{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+.feature p{margin:0;font-size:14px;line-height:1.65;color:var(--ink);opacity:.74}
+
+/* SHOWCASE */
+.showcase{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0f1d3a 0%,#1a2b52 52%,#2c4172 100%);aspect-ratio:16/9;box-shadow:0 46px 90px -34px rgba(15,29,58,.55)}
+.showcase [data-parallax]{position:absolute;border-radius:50%;pointer-events:none;will-change:transform}
+.showcase__glow1{width:560px;height:560px;background:radial-gradient(circle,rgba(194,70,43,.55) 0%,transparent 64%);filter:blur(34px);top:-160px;right:-120px}
+.showcase__glow2{width:480px;height:480px;background:radial-gradient(circle,rgba(122,79,181,.4) 0%,transparent 66%);filter:blur(30px);bottom:-180px;left:-120px}
+.showcase__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;opacity:.6}
+.showcase__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#c9d2e4;text-align:center;padding:24px}
+.showcase__ph{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:10px 18px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.showcase__sub{font-size:13px;opacity:.6;max-width:24rem}
+.showcase__frame{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+
+/* HOW IT WORKS */
+.steps{display:grid;gap:18px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:768px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:#fff;border:1px solid rgba(15,29,58,.08);border-radius:20px;padding:30px 26px;position:relative}
+.step__num{position:absolute;top:22px;right:24px;font-size:44px;font-weight:500;letter-spacing:-.02em;color:rgba(15,29,58,.06)}
+.step__ico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;margin-bottom:20px}
+.step h3{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+.step p{margin:0;font-size:14px;line-height:1.65;color:var(--ink);opacity:.74}
+
+/* STATS BAND */
+.band{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.band [data-parallax]{position:absolute;border-radius:50%;pointer-events:none;will-change:transform}
+.band__glow{width:520px;height:520px;background:radial-gradient(circle,rgba(194,70,43,.4) 0%,transparent 62%);filter:blur(40px);top:-220px;left:10%}
+.stats{display:grid;gap:36px;grid-template-columns:repeat(2,1fr);position:relative}
+@media(min-width:768px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{text-align:center}
+.stat__num{font-size:2.4rem;font-weight:600;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+@media(min-width:768px){.stat__num{font-size:3rem}}
+.stat__label{margin-top:10px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.68)}
+
+/* PRICING */
+.pricing{display:grid;gap:16px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:768px){.pricing{grid-template-columns:repeat(3,1fr);align-items:start}}
+.plan{background:#fff;border:1px solid rgba(15,29,58,.08);border-radius:22px;padding:32px 28px;display:flex;flex-direction:column}
+.plan h3{font-size:15px;font-weight:600;letter-spacing:.02em;margin:0}
+.plan__price{font-size:2.6rem;font-weight:600;letter-spacing:-.03em;margin:18px 0 4px;color:var(--ink);line-height:1}
+.plan__price small{font-size:13px;font-weight:500;color:var(--ink);opacity:.55;letter-spacing:0}
+.plan__desc{font-size:13px;line-height:1.6;color:var(--ink);opacity:.68;min-height:2.6em;margin:6px 0 20px}
+.plan__list{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:11px}
+.plan__list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--ink);opacity:.86}
+.plan__list svg{flex:none;margin-top:3px;color:var(--sun)}
+.plan__btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:13px 20px;border-radius:var(--pill);font-size:14px;font-weight:600;background:var(--ink);color:#fff;transition:background-color 150ms var(--ease);margin-top:auto;text-align:center}
+.plan__btn:hover{background:var(--ink-hover)}
+.plan--featured{background:var(--ink);color:#fff;border-color:transparent;position:relative;box-shadow:0 36px 70px -30px rgba(15,29,58,.55)}
+.plan--featured .plan__price,.plan--featured h3{color:#fff}
+.plan--featured .plan__price small{color:rgba(255,255,255,.55)}
+.plan--featured .plan__desc{color:rgba(255,255,255,.72)}
+.plan--featured .plan__list li{color:rgba(255,255,255,.92)}
+.plan--featured .plan__list svg{color:var(--sun)}
+.plan--featured .plan__btn{background:#fff;color:var(--ink)}
+.plan--featured .plan__btn:hover{background:rgba(255,255,255,.88)}
+.plan__tag{position:absolute;top:-12px;left:28px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--accent);background-size:200% 100%;padding:6px 14px;border-radius:999px;box-shadow:0 8px 18px -6px rgba(0,0,0,.35)}
+
+/* TESTIMONIALS */
+.tests{display:grid;gap:18px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:768px){.tests{grid-template-columns:repeat(3,1fr)}}
+.testimonial{background:#fff;border:1px solid rgba(15,29,58,.08);border-radius:20px;padding:28px 26px;display:flex;flex-direction:column}
+.testimonial blockquote{margin:0 0 22px;font-size:15px;line-height:1.7;color:var(--ink);quotes:"“" "”";font-weight:400}
+.testimonial blockquote::before{content:open-quote;color:var(--sun);font-size:22px;line-height:0;vertical-align:-6px;margin-right:2px}
+.stars{color:var(--sun);display:flex;gap:3px;margin-bottom:14px}
+.who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex:none}
+.who__name{font-size:14px;font-weight:600;line-height:1.3}
+.who__role{font-size:12px;line-height:1.4;color:var(--ink);opacity:.6}
+
+/* BIG CTA */
+.cta-band{position:relative;background:linear-gradient(135deg,#0f1d3a 0%,#14263f 60%,#1c2f4f 100%);border-radius:30px;color:#fff;padding:72px 24px;text-align:center;overflow:hidden;margin-top:88px}
+.cta-band [data-parallax]{position:absolute;border-radius:50%;pointer-events:none;will-change:transform}
+.cta-band__glow{width:640px;height:640px;background:radial-gradient(circle,rgba(194,70,43,.5) 0%,transparent 60%);filter:blur(46px);top:-280px;right:-140px}
+.cta-band__glow2{width:460px;height:460px;background:radial-gradient(circle,rgba(122,79,181,.35) 0%,transparent 62%);filter:blur(40px);bottom:-220px;left:-120px}
+.cta-band h2{font-weight:500;letter-spacing:-.03em;font-size:2.1rem;line-height:1.08;margin:0 auto;max-width:34rem;text-wrap:balance;position:relative}
+@media(min-width:768px){.cta-band h2{font-size:3.25rem}}
+.cta-band p{margin:20px auto 0;max-width:30rem;font-size:15px;line-height:1.7;color:rgba(255,255,255,.72);position:relative}
+.cta-band__row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;position:relative}
+.cta-band__primary{background:#fff;color:var(--ink);font-weight:600;font-size:15px;padding:14px 26px;border-radius:var(--pill);box-shadow:0 12px 30px -10px rgba(0,0,0,.4);transition:background-color 150ms var(--ease),transform .3s var(--ease);display:inline-flex;align-items:center;gap:9px}
+.cta-band__primary:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
+.cta-band__secondary{color:#fff;font-weight:600;font-size:15px;padding:14px 10px;transition:opacity 150ms var(--ease)}
+.cta-band__secondary:hover{opacity:.75}
+
+/* FOOTER */
+.footer{background:var(--bg-fallback);padding:72px 0 0;position:relative}
+.footer__top{display:grid;gap:44px;grid-template-columns:1fr;padding-bottom:56px;border-bottom:1px solid rgba(15,29,58,.1)}
+@media(min-width:900px){.footer__top{grid-template-columns:1.6fr 1fr 1fr 1fr 1.9fr;gap:40px}}
+.footer__brand .brand{display:flex;align-items:center;gap:10px;color:var(--ink);margin-bottom:16px}
+.footer__brand p{font-size:14px;line-height:1.7;color:var(--ink);opacity:.68;max-width:17rem}
+.footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);opacity:.5;margin:0 0 16px}
+.footer__col{display:flex;flex-direction:column;gap:11px}
+.footer__col a{font-size:14px;line-height:1.4;color:var(--ink);opacity:.78;transition:opacity 150ms var(--ease)}
+.footer__col a:hover{opacity:1;color:var(--sun)}
+.newsletter p{font-size:14px;line-height:1.6;color:var(--ink);opacity:.7;margin:0 0 16px}
+.newsletter__form{display:flex;gap:8px;padding:6px;border-radius:var(--pill);background:#fff;border:1px solid rgba(15,29,58,.1);max-width:22rem}
+.newsletter__input{flex:1;border:none;outline:none;background:transparent;padding:4px 10px;font:inherit;font-size:14px;color:var(--ink)}
+.newsletter__input::placeholder{color:rgba(15,29,58,.4)}
+.newsletter__btn{flex:none;background:var(--ink);color:#fff;font-weight:600;font-size:13px;padding:9px 18px;border-radius:var(--pill);transition:background-color 150ms var(--ease)}
+.newsletter__btn:hover{background:var(--ink-hover)}
+.newsletter__ok{font-size:13px;color:var(--sun);font-weight:500;margin-top:12px;min-height:1em;opacity:0;transition:opacity .4s var(--ease)}
+.newsletter__ok.show{opacity:1}
+.footer__bottom{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:26px 0 40px}
+.footer__bottom p{font-size:13px;color:var(--ink);opacity:.55;margin:0}
+.footer__legal{display:flex;gap:20px;flex-wrap:wrap}
+.footer__legal a{font-size:13px;color:var(--ink);opacity:.6;transition:opacity 150ms var(--ease)}
+.footer__legal a:hover{opacity:1}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .progress__bar{width:0!important}
+  [data-parallax]{transform:none!important}
+  article,section{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
@@ -272,6 +438,434 @@ svg,video,canvas{display:block}
     <span class="logo logo--vessel"><span class="logo__mark logo__hollow" aria-hidden="true"></span>VESSEL</span>
   </div>
 </section>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<main id="content">
+
+  <!-- PROBLEM / SOLUTION -->
+  <section class="section" id="problem" data-screen-label="Why">
+    <div class="container">
+      <div class="prob">
+        <div class="prob__stack reveal">
+          <div>
+            <span class="kicker">The problem</span>
+            <h2 class="h2">Your calendar is full.<br>Your best work never happened.</h2>
+            <p class="lede">Meetings, pings and last-minute invites nibble the hours you actually think in — until the deep work you planned quietly disappears from the week.</p>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <div><h3>Reactive calendars</h3><p>Your week is whoever booked first, not whoever thinks best. Focus time gets squeezed into leftover gaps.</p></div>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            <div><h3>Endless context switching</h3><p>Every interruption resets ~20 minutes of focus. By Friday, the meaningful work is the first casualty.</p></div>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div><h3>HappyCalendar fixes the week</h3><p>Your best hours get blocked, guarded, and reviewed — before anyone else can claim them.</p></div>
+          </div>
+        </div>
+
+        <div class="prob__gap reveal">
+          <span class="prob__arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+
+        <div class="prob__stack reveal">
+          <div>
+            <span class="kicker">The approach</span>
+            <h2 class="h2">Deep work, <span class="grad">protected by design</span></h2>
+            <p class="lede">HappyCalendar plans your week around the work that matters, then quietly guards it — automatically, every single week.</p>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <div><h3>Focus first</h3><p>Your highest-value work is scheduled into your sharpest hours — not your leftovers.</p></div>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <div><h3>Guarded automatically</h3><p>Meetings and requests are deflected or moved so your protected time stays protected.</p></div>
+          </div>
+          <div class="prob__row">
+            <span class="prob__mark prob__mark--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="20.49 15.13 19 17 13 17"/><path d="M3 3v18h18"/></svg></span>
+            <div><h3>Weekly review</h3><p>A clear read on how your week actually went — so next week is better, not busier.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="product" data-screen-label="Product">
+    <div class="container">
+      <span class="kicker reveal">Everything you need</span>
+      <h2 class="h2 reveal">One calm place to plan<br>a strong week</h2>
+      <p class="lede reveal">Four quiet tools that stack on top of the calendar you already use — no new inbox, no learning curve.</p>
+
+      <div class="features">
+        <div class="feature reveal">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Deep-work blocking</h3>
+          <p>Reserve your sharpest hours for one thing at a time, and mark them as non-negotiable before the week fills up.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+          <h3>Meeting veto</h3>
+          <p>Meetings that hit protected time are declined, moved, or sent back — so you never have to do the awkward work yourself.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="16 14 14 16 12 14"/></svg></div>
+          <h3>Smart scheduling</h3>
+          <p>Smart scheduling reads your calendar and energy, fits the right task into the right slot, and keeps momentum.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <h3>Weekly review</h3>
+          <p>A short, honest look at what got done and what didn't — so next week is a better plan, not a busier one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section class="section" id="app" data-screen-label="Product tour">
+    <div class="container">
+      <div class="showcase reveal" role="img" aria-label="HappyCalendar application screenshot placeholder">
+        <div class="showcase__grid" aria-hidden="true"></div>
+        <div class="showcase__glow1" data-parallax data-speed="25" aria-hidden="true"></div>
+        <div class="showcase__glow2" data-parallax data-speed="18" aria-hidden="true"></div>
+        <div class="showcase__placeholder">
+          <span class="showcase__ph">Placeholder — app screenshot needed</span>
+          <span class="showcase__sub">16:9 capture of the weekly planner: protected deep-work blocks, veto queue, weekly review.</span>
+        </div>
+        <div class="showcase__frame" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how" data-screen-label="How it works">
+    <div class="container">
+      <div style="max-width:36rem">
+        <span class="kicker reveal">How it works</span>
+        <h2 class="h2 reveal">Set up once. Get a better week, forever.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step__num" aria-hidden="true">01</span>
+          <span class="step__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>Connect your calendar</h3>
+          <p>Link Google or Outlook in under a minute. HappyCalendar reads events and tasks, and never changes anything you don't approve.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num" aria-hidden="true">02</span>
+          <span class="step__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <h3>Set your deep-work hours</h3>
+          <p>Tell it when you think best. It blocks those as protected time and helps you assign real tasks to them.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num" aria-hidden="true">03</span>
+          <span class="step__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <h3>It guards your week</h3>
+          <p>Every week it plans ahead, vetoes what doesn't fit, and reviews how it went — your focus hours stay yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="band section" data-screen-label="Stats">
+    <div class="band__glow" data-parallax data-speed="20" aria-hidden="true"></div>
+    <div class="container">
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num" data-count="12" data-suffix="h">0</div>
+          <div class="stat__label">of deep work protected<br>every week, per user</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-count="2" data-suffix="k+">0</div>
+          <div class="stat__label">meetings vetoed from<br>focused time, so far</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-count="38" data-suffix="%">0</div>
+          <div class="stat__label">average reduction in<br>context switching</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-count="4.9" data-decimals="1" data-suffix="/5">0</div>
+          <div class="stat__label">average rating from<br>early users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing" data-screen-label="Pricing">
+    <div class="container">
+      <div style="max-width:36rem">
+        <span class="kicker reveal">Pricing</span>
+        <h2 class="h2 reveal">Pay for your time<br>coming back, not a toolkit</h2>
+        <p class="lede reveal">Start free, upgrade when you want guardrails for a whole team.</p>
+      </div>
+      <div class="pricing">
+        <div class="plan reveal">
+          <h3>Starter</h3>
+          <div class="plan__price">Free <small>/ forever</small></div>
+          <p class="plan__desc">For one person who wants a calmer week, today.</p>
+          <ul class="plan__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1 calendar + 2 deep-work blocks</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Automatic meeting veto</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Weekly review</li>
+          </ul>
+          <a class="plan__btn" href="#signup">Start free</a>
+        </div>
+        <div class="plan plan--featured reveal">
+          <span class="plan__tag">Most popular</span>
+          <h3>Focus</h3>
+          <div class="plan__price">$9 <small>/ month</small></div>
+          <p class="plan__desc">For professionals who live in their calendar and want it protected.</p>
+          <ul class="plan__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited deep-work blocks</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Smart scheduling across tools</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SSO + priority support</li>
+          </ul>
+          <a class="plan__btn" href="#signup">Get Focus</a>
+        </div>
+        <div class="plan reveal">
+          <h3>Team</h3>
+          <div class="plan__price">$19 <small>/ user, month</small></div>
+          <p class="plan__desc">Guardrails, norms and focus time for your whole team.</p>
+          <ul class="plan__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Team focus norms &amp; analytics</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Admin manages company-wide days</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dedicated onboarding</li>
+          </ul>
+          <a class="plan__btn" href="#signup">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="stories" data-screen-label="Stories">
+    <div class="container">
+      <div style="max-width:36rem">
+        <span class="kicker reveal">Stories</span>
+        <h2 class="h2 reveal">Focus people<br>love it</h2>
+      </div>
+      <div class="tests">
+        <div class="testimonial reveal">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>I stopped negotiating with my own calendar. The Tuesday I used to lose to back-to-backs is now my best day of the week.</blockquote>
+          <div class="who">
+            <span class="avatar">AM</span>
+            <div><div class="who__name">Amara Osei</div><div class="who__role">Engineering lead, Northbeam</div></div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>Smart scheduling books real thinking time for me. My deep work finally happens, instead of being a nice idea on a Monday.</blockquote>
+          <div class="who">
+            <span class="avatar">JD</span>
+            <div><div class="who__name">Jules Delacroix</div><div class="who__role">Founder, Acre Studio</div></div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>The weekly review is the calmest accountability I've ever had. I know exactly what moved forward and what didn't, every Friday.</blockquote>
+          <div class="who">
+            <span class="avatar">LQ</span>
+            <div><div class="who__name">Lin Quan</div><div class="who__role">Product designer, Lumio</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <section class="section" id="getstarted" data-screen-label="Get started">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div class="cta-band__glow" data-parallax data-speed="22" aria-hidden="true"></div>
+        <div class="cta-band__glow2" data-parallax data-speed="16" aria-hidden="true"></div>
+        <h2>Make room for the work that matters.</h2>
+        <p>Join early users who've already reclaimed their best hours. Free to start, quieter week guaranteed in five minutes.</p>
+        <div class="cta-band__row">
+          <button type="button" class="cta-band__primary">Get early access
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <a class="cta-band__secondary" href="#how">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="changelog" data-screen-label="Footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#content">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="wordmark">HappyCalendar</span>
+        </a>
+        <p>Your best hours, protected. A calendar that plans your week around deep work.</p>
+      </div>
+      <nav class="footer__col" aria-label="Product">
+        <h4>Product</h4>
+        <a href="#product">Features</a>
+        <a href="#getstarted">Get started</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#changelog">Changelog</a>
+      </nav>
+      <nav class="footer__col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="#stories">Stories</a>
+        <a href="m&#97;ilto:hello@happycalendar.app">Contact</a>
+        <a href="#getstarted">Careers</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <nav class="footer__col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="#changelog">Privacy</a>
+        <a href="#changelog">Terms</a>
+        <a href="#changelog">Security</a>
+        <a href="#changelog">Cookies</a>
+      </nav>
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <p>One calm email a month on focus, deep work and better weeks. No noise.</p>
+        <form class="newsletter__form" id="newsletter">
+          <input class="newsletter__input" type="email" name="email" placeholder="you@company.com" aria-label="Email address" required>
+          <button type="submit" class="newsletter__btn">Subscribe</button>
+        </form>
+        <div class="newsletter__ok" role="status" id="newsletter-ok">Thanks — talk soon.</div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="yr">2026</span> HappyCalendar. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#changelog">Status</a>
+        <a href="#app">News</a>
+        <a href="#stories">Press kit</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = function(){ try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){ return false; } };
+  if (reduce()) return; /* reveal/parallax/count remain visible via reduced-motion CSS */
+
+  /* SCROLL-REVEAL with stagger */
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealIdx = 0;
+  revealEls.forEach(function(el){
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains('reveal')) revealIdx++;
+    else revealIdx = 0;
+    var delay = Math.min(revealIdx * 90, 360);
+    el.style.transitionDelay = delay + 'ms';
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* STICKY ACCENT — scroll progress bar */
+  var bar = document.querySelector('.progress__bar');
+  var ticking = false;
+  function update(){
+    var st = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = dh > 0 ? Math.min(100, Math.max(0, (st / dh) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+
+  /* PARALLAX on [data-parallax] */
+  var pEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  var pState = pEls.map(function(el){
+    var r = el.getBoundingClientRect();
+    var speed = parseFloat(el.getAttribute('data-speed') || '20');
+    return { el: el, baseTop: r.top + window.scrollY, speed: speed };
+  });
+  function parallax(){
+    var st = window.scrollY;
+    pState.forEach(function(p){
+      var prev = p.el.__prev !== undefined ? p.el.__prev : st;
+      var delta = st - prev;
+      var cur = parseFloat(p.el.style.transform && p.el.style.transform.indexOf('translate3d') >= 0 ? p.el.style.transform.replace(/[^0-9.\-]/g,'') : '0') || 0;
+      var next = cur + delta * (p.speed / 100);
+      p.el.style.transform = 'translate3d(0,' + next + 'px,0)';
+      p.el.__prev = st;
+    });
+  }
+  window.addEventListener('scroll', parallax, { passive: true });
+
+  /* COUNT-UP */
+  var counts = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1200, start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = val.toFixed(decimals) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { animateCount(entry.target); cio.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counts.forEach(function(el){ cio.observe(el); });
+  } else {
+    counts.forEach(function(el){
+      el.textContent = parseFloat(el.getAttribute('data-count')).toFixed(parseInt(el.getAttribute('data-decimals')||'0',10)) + (el.getAttribute('data-suffix')||'');
+    });
+  }
+
+  /* NEWSLETTER (dummy handler) */
+  var form = document.getElementById('newsletter');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = form.querySelector('input');
+      if (!input.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)) { input.focus(); return; }
+      var ok = document.getElementById('newsletter-ok');
+      form.reset();
+      ok.classList.add('show');
+    });
+  }
+
+  /* cartophonically update the footer year from the host */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = String(new Date().getFullYear());
+})();
+</script>
 
 <script>
 (function(){
